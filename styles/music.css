@@ -1,0 +1,156 @@
+:root {
+  --primary-color: #31c27c; /*主色调，一般用于按钮等元素*/
+}
+body {
+  /*主题样式*/
+  margin: 0; /*所有边距为0*/
+  background: #f5f5f5; /*背景颜色*/
+  font-family: Microsoft Yahei; /*文字字体*/
+  font-size: 14px; /*每个文字所占像素点*/
+  /* min-width: 1000px; */
+}
+a {
+  /*链接标签样式*/
+  text-decoration: none; /*无任何装饰线*/
+  color: #000; /*颜色为黑色*/
+}
+header {
+  /*标题栏设置*/
+  height: 90px; /*高度为90像素点*/
+  background: white; /*背景颜色为白色*/
+  display: flex; /*弹性盒子布局*/
+  align-items: center; /*弹性容器内项目的对齐方式为居中对齐*/
+}
+.header-inner,
+main {
+  /* width: 1200px; */
+  padding: 20px; /*内边距均为20px*/
+  margin: auto; /*外边距为自适应*/
+}
+.tag-list {
+  /*导航栏的样式*/
+  margin-top: 50px; /*上边距为50px*/
+  margin-bottom: 15px; /*下边距为15px*/
+}
+.tag-item {
+  /*导航栏中每一项的样式*/
+  display: inline-block; /*保持在同一行显示*/
+  padding: 0 8px; /*上内边距和下内边距是 0px  右内边距和左内边距是 8px*/
+  margin-right: 24px; /*右边距为24px*/
+  line-height: 26px; /*行高为26px*/
+  color: #000; /*颜色为黑*/
+  text-decoration: none; /*无文本装饰*/
+}
+.tag-active {
+  /*导航栏中被选中的一项的样式*/
+  background: var(--primary-color); /*背景颜色为主色调：绿*/
+  color: white; /*文字颜色为白*/
+}
+.tag-item:not(.tag-active):hover {
+  /*导航栏中没有被选中且鼠标悬浮时的一项的样式*/
+  color: var(--primary-color); /*文字颜色为主色调：绿*/
+}
+.nowrap {
+  /*歌曲信息样式*/
+  white-space: nowrap; /*处理元素内的空白 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止*/
+  overflow: hidden; /*如果内容溢出，内容会被修剪，并且其余内容是不可见的*/
+  text-overflow: ellipsis; /*如果文本过多，显示省略符号来代表被修剪的文本*/
+}
+.playlist {
+  /*歌曲卡片样式*/
+  display: grid; /*网格布局*/
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /*规定网格布局中的列数  auto-fill表示会尽量在一行多创建轨道  轨道名、轨道尺寸*/
+  gap: 45px 15px; /*在网格布局中将行间距设置为 45px，将列间距设置为 15px*/
+  margin-bottom: 45px; /*下边距为45px*/
+}
+.cover-wrap {
+  /*图片部分样式*/
+  display: flex; /*弹性盒子布局*/
+  position: relative; /*规定元素的定位类型 生成相对定位的元素，相对于其正常位置进行定位*/
+  overflow: hidden; /*如果内容溢出，内容会被修剪，并且其余内容是不可见的*/
+  width: 100%; /*宽度占父元素100%*/
+  margin-bottom: 15px; /*下边距15px*/
+  align-items: center; /*弹性容器内项目的对齐方式为居中对齐*/
+  justify-content: center; /*规定网格项在行内方向的对齐方式为居中对齐*/
+  cursor: pointer; /*规定当指向元素时要显示的鼠标光标呈现为指示链接的指针（一只手）*/
+}
+.cover-img {
+  /*图片展示*/
+  width: 100%; /*宽度占100%*/
+  transition: all 0.75s; /*所有过渡时间为0.75s*/
+}
+.cover-mask {
+  /**/
+  position: absolute; /*生成绝对定位的元素*/
+  left: 0; /*定位元素左外边距边界与其包含块左边界之间的偏移为0*/
+  top: 0; /*定位元素上外边距边界与其包含块左边界之间的偏移*/
+  right: 0; /*定位元素右外边距边界与其包含块左边界之间的偏移*/
+  bottom: 0; /*定位元素下外边距边界与其包含块左边界之间的偏移*/
+  background: #000; /*背景为黑*/
+  opacity: 0; /*设置元素的不透明等级为0(完全透明)*/
+  transition: all 0.5s; /*所有过渡时间为0.5s*/
+}
+.cover-play {
+  /**/
+  position: absolute; /*生成绝对定位的元素*/
+  left: 50%; /*设置以包含元素的50%的左边位置*/
+  top: 50%; /*设置以包含元素的50%的上边位置*/
+  margin-left: -35px; /*左边距为-35px*/
+  margin-top: -35px; /*上边距为-35px*/
+  opacity: 0; /*设置元素的不透明等级为0(完全透明)*/
+  transform: scale(0.7); /**/
+  transition: all 0.5s; /*所有过渡时间为0.5s*/
+}
+.cover-wrap:hover .cover-mask {
+  opacity: 0.2; /*设置元素的不透明等级为0(完全透明)*/
+}
+.cover-wrap:hover .cover-play {
+  opacity: 1; /*设置元素的不透明等级为1(完全不透明)*/
+  transform: scale(1); /*定义 2D 缩放转换*/
+}
+.cover-wrap:hover .cover-img {
+  transform: scale(1.07); /*定义 2D 缩放转换*/
+}
+.album-title:hover {
+  color: var(--primary-color); /*鼠标悬浮时 文字颜色变为主色调*/
+}
+.album-author {
+  color: #999; /*作者文字颜色为灰色*/
+  line-height: 1.6; /*行高为1.6*/
+}
+.album-author:hover {
+  color: var(--primary-color); /*鼠标悬浮时 文字颜色变为主色调*/
+}
+.album-time {
+  color: #999; /*时间文字颜色为灰色*/
+}
+.page {
+  /*底部分页索引*/
+  display: flex; /*弹性盒子布局*/
+  align-items: center; /*规定弹性容器内项目的对齐方式为居中对齐*/
+  justify-content: center; /**/
+}
+.page-item {
+  /**/
+  display: inline-block; /*保持同一行显示*/
+  color: #a2a2a2; /*文字颜色 灰*/
+  line-height: 50px; /*行高 50px*/
+  padding: 0 20px; /*内边距 上下为0 左右为20px*/
+  margin: 10px; /*外边距为10px*/
+  font-size: 16px; /*文字高度 16px*/
+}
+.page-current,
+.page-item:not(.page-more):hover {
+  /*被选中或鼠标悬浮时 背景样式*/
+  background: var(--primary-color); /*主色调*/
+  color: white; /*文字颜色为白*/
+}
+footer {
+  /*底部*/
+  margin-top: 60px; /*上边距60px*/
+  background: #333; /*背景为深灰色*/
+  height: 200px; /*高度为200px*/
+}
