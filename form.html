@@ -11,6 +11,8 @@
         width: 380px;
         margin: 10px auto;
         /* text-align: center; */
+        background-color: rgb(247, 248, 250);
+        border-radius: 10px;
       }
       form {
         margin-top: 10%;
@@ -21,14 +23,20 @@
         text-align: right;
       }
       .footer {
-        margin-left: 87px;
+        margin-left: 110px;
+        width: 150px;
+        margin-bottom: 10px;
+      }
+      input {
+        height: 22px;
+        border: #585656;
       }
     </style>
   </head>
   <body>
     <div>
       <form action="#" method="post">
-        <h4 style="color: blue">欢迎注册会员</h4>
+        <h3 style="color: blue; padding: 10px; margin: 0px">欢迎注册会员</h3>
         <div>
           <label for="phonenumber">手机号码:</label>
           <input
@@ -80,8 +88,19 @@
         </div>
         <div>
           <label for="sex">性别:</label>
-          <label> <input type="radio" name="sex" value="male" /> 男 </label>
-          <label> <input type="radio" name="sex" value="female" /> 女 </label>
+          <label>
+            <input type="radio" name="sex" value="male" style="height: auto" />
+            男
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="sex"
+              value="female"
+              style="height: auto"
+            />
+            女
+          </label>
         </div>
         <div>
           <label for="birthday">生日:</label>
@@ -143,11 +162,28 @@
         <div>
           <label>个人爱好:</label>
           <label>
-            <input type="checkbox" name="like" value="sing" />唱歌
+            <input
+              type="checkbox"
+              name="like"
+              value="sing"
+              style="height: auto"
+            />唱歌
           </label>
-          <label> <input type="checkbox" name="like" value="run" />跑步 </label>
           <label>
-            <input type="checkbox" name="like" value="swim" />游泳
+            <input
+              type="checkbox"
+              name="like"
+              value="run"
+              style="height: auto"
+            />跑步
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="like"
+              value="swim"
+              style="height: auto"
+            />游泳
           </label>
         </div>
         <div>
@@ -165,17 +201,40 @@
             "
           ></div>
         </div>
-        <div>
-          <table>
-            <tr>
-              <td><label>个人简介:</label></td>
-              <td><textarea name="intro" cols="30" rows="10"></textarea></td>
-            </tr>
-          </table>
+        <div style="display: flex; height: 160px">
+          <td>
+            <label style="height: 160px; padding-top: 75px"
+              >个人简介:&nbsp;</label
+            >
+          </td>
+          <td>
+            <textarea
+              name="intro"
+              cols="30"
+              rows="10"
+              style="margin-left: 5px"
+            ></textarea>
+          </td>
         </div>
         <div class="footer">
-          <input type="submit" value="提交" />
-          <input type="reset" value="重填" />
+          <input
+            type="submit"
+            value="提交"
+            style="
+              margin: 15px;
+              border: 1px solid rgb(79, 78, 78);
+              border-radius: 3px;
+            "
+          />
+          <input
+            type="reset"
+            value="重填"
+            style="
+              margin: 15px;
+              border: 1px solid rgb(79, 78, 78);
+              border-radius: 3px;
+            "
+          />
         </div>
       </form>
     </div>
